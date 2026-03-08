@@ -1,17 +1,22 @@
-<?php get_header(); ?>
+<?php
+
+declare(strict_types = 1);
+
+(); ?>
 
 
 <section class="page-content my-5">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <?php
-                    echo the_content();
-                ?>
-            </div>
-        </div>
-    </div>
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+				<?php
+					echo the_content();
+				?>
+			</div>
+		</div>
+	</div>
 </section>
 
 
-<?php get_footer();
+<?php
+get_footer();

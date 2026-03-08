@@ -1,21 +1,27 @@
-<?php get_header(); ?>
+<?php
+
+declare(strict_types = 1);
+
+(); ?>
 
 <?php
 
-if( have_rows('flexible_content') ):
+if ( have_rows( 'flexible_content' ) ) :
 
-     // loop through the rows of data
-    while ( have_rows('flexible_content') ) : the_row();
+	// loop through the rows of data
+	while ( have_rows( 'flexible_content' ) ) :
+		the_row();
 
-        include 'partials/blocks/' . get_row_layout() . '.php';
+		include 'partials/blocks/' . get_row_layout() . '.php';
 
-    endwhile;
+	endwhile;
 
 else :
 
-    // no layouts found
+	// no layouts found
 
 endif;
 ?>
 
-<?php get_footer();
+<?php
+get_footer();

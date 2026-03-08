@@ -2,30 +2,30 @@
  * Accordion layout
  */
 
-@use "../variables" as *;
+@use '../variables' as *;
 
 .accordion-block {
   // Spacing handled by .py-5 in markup
 
   .accordion {
     // Tune Bootstrap CSS variables for this instance
-    --bs-accordion-border-color: rgba(#000, .08);
-    --bs-accordion-border-radius: .5rem;
-    --bs-accordion-inner-border-radius: .5rem;
+    --bs-accordion-border-color: rgba(#000, 0.08);
+    --bs-accordion-border-radius: 0.5rem;
+    --bs-accordion-inner-border-radius: 0.5rem;
     --bs-accordion-btn-padding-y: 1rem;
     --bs-accordion-btn-padding-x: 1.25rem;
     --bs-accordion-body-padding-y: 1rem;
     --bs-accordion-body-padding-x: 1.25rem;
     --bs-accordion-active-bg: rgba(#009688, 0.08);
     --bs-accordion-active-color: #111827;
-    --bs-accordion-btn-focus-border-color: rgba(#009688, .4);
-    --bs-accordion-btn-focus-box-shadow: 0 0 0 .25rem rgba(#009688, .25);
+    --bs-accordion-btn-focus-border-color: rgba(#009688, 0.4);
+    --bs-accordion-btn-focus-box-shadow: 0 0 0 0.25rem rgba(#009688, 0.25);
   }
 
   .accordion-item {
     border: 1px solid rgba($dark, 0.1);
+    border-radius: 0.5rem;
     background-color: $white;
-    border-radius: .5rem;
     overflow: hidden;
 
     & + .accordion-item {
@@ -39,7 +39,7 @@
     background-color: $white;
 
     &::after {
-      filter: grayscale(1) opacity(.6);
+      filter: grayscale(1) opacity(0.6);
     }
 
     &:not(.collapsed) {
@@ -49,8 +49,8 @@
     }
 
     &:focus {
-      border-color: rgba($primary-color, .4);
-      box-shadow: 0 0 0 .25rem rgba($primary-color, .25);
+      border-color: rgba($primary-color, 0.4);
+      box-shadow: 0 0 0 0.25rem rgba($primary-color, 0.25);
     }
   }
 
@@ -76,12 +76,14 @@
   .bg-dark & {
     .accordion,
     .accordion-item {
-      --bs-accordion-active-bg: rgba(255,255,255,0.06);
+      --bs-accordion-active-bg: rgb(255 255 255 / 6%);
     }
+
     .accordion-item {
       border-color: rgba($white, 0.12);
       background-color: $dark;
     }
+
     .accordion-button {
       color: $white;
       background-color: transparent;
@@ -89,10 +91,12 @@
       &:not(.collapsed) {
         color: $white;
       }
+
       &::after {
-        filter: invert(1) opacity(.9);
+        filter: invert(1) opacity(0.9);
       }
     }
+
     .accordion-body {
       color: $white;
       background-color: transparent;
@@ -104,10 +108,11 @@
     --bs-accordion-border-color: transparent;
 
     .accordion-item {
-      border-radius: 0;
-      border-left: 0;
       border-right: 0;
+      border-left: 0;
+      border-radius: 0;
       border-color: rgba($dark, 0.1);
+
       & + .accordion-item {
         margin-top: 0;
       }

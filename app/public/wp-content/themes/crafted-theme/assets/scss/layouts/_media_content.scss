@@ -1,10 +1,12 @@
-@use "variables" as *;
+@use 'variables' as *;
 
-.media-content{
-    .content-container{}
-    .media-container{
-        .media-img{
-            border-radius: 10px;
-        }
+.media-content {
+  .content-container {
+  }
+
+  .media-container {
+    .media-img {
+      border-radius: 10px;
     }
+  }
 }

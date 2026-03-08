@@ -1,27 +1,30 @@
 <?php
+
+declare(strict_types = 1);
+
 /**
  * Content
  */
 
-return [
-  'key' => 'crafted_layout_content',
-  'name' => 'content',
-  'label' => 'Content Block',
-  'display' => 'block',
+return array(
+	'key'        => 'crafted_layout_content',
+	'name'       => 'content',
+	'label'      => 'Content Block',
+	'display'    => 'block',
 
-  'sub_fields' => [
-    [
-      'key' => 'crafted_layout_content_value',
-      'label' => 'Content',
-      'name' => 'content',
-      'type' => 'wysiwyg',
-      'required' => 1,
-      'tabs' => 'all',
-      'toolbar' => 'full',
-      'media_upload' => 0,
-    ],
-  ],
+	'sub_fields' => array(
+		array(
+			'key'          => 'crafted_layout_content_value',
+			'label'        => 'Content',
+			'name'         => 'content',
+			'type'         => 'wysiwyg',
+			'required'     => 1,
+			'tabs'         => 'all',
+			'toolbar'      => 'full',
+			'media_upload' => 0,
+		),
+	),
 
-  'min' => '',
-  'max' => '',
-];
+	'min'        => '',
+	'max'        => '',
+);

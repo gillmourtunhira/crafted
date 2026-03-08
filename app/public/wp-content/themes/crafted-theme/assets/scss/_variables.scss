@@ -11,18 +11,17 @@ $dark-grey: #222;
 $header-height: 80px;
 
 // Typography
-$font-family: "Manrope", sans-serif;
-
+$font-family: 'Manrope', sans-serif;
 
 // Colors
 $theme-colors: (
-    primary: $primary-color,
-    dark: $dark,
-    grey: $grey,
-    white: $white,
-    black: $black,
-    light: $light,
-    light-grey: $light-grey,
-    teal: $teal,
-    dark-grey: $dark-grey
+  primary: $primary-color,
+  dark: $dark,
+  grey: $grey,
+  white: $white,
+  black: $black,
+  light: $light,
+  light-grey: $light-grey,
+  teal: $teal,
+  dark-grey: $dark-grey
 );

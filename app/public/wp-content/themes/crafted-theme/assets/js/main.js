@@ -1,7 +1,7 @@
-jQuery(document).ready(function ($) {
-  console.log("jQuery is working");
+jQuery(document).ready($ => {
+  console.log('jQuery is working');
 
-  $(".accordion-button").click(function () {
-    $(this).next(".accordion-collapse").slideToggle();
+  $('.accordion-button').click(function () {
+    $(this).next('.accordion-collapse').slideToggle();
   });
 });

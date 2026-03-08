@@ -1,5 +1,9 @@
 <section class="page-content my-5">
-    <div class="container">
-    <?php the_sub_field("content"); ?>
-    </div>
+	<div class="container">
+	<?php
+
+	declare(strict_types = 1);
+
+	'content'; ?>
+	</div>
 </section>

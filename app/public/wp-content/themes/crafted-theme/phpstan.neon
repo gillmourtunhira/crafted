@@ -1,0 +1,101 @@
+parameters:
+    level: 6
+    paths:
+        - .
+    excludePaths:
+        - vendor
+        - node_modules
+        - dist
+        - build
+        - tests
+        - .git
+    bootstrapFiles:
+        - tests/bootstrap.php
+    
+    # WordPress specific settings
+    scanFiles:
+        - ../../../../wp-includes/functions.php
+        - ../../../../wp-includes/load.php
+        - ../../../../wp-includes/plugin.php
+        - ../../../../wp-includes/theme.php
+        - ../../../../wp-includes/post.php
+        - ../../../../wp-includes/query.php
+        - ../../../../wp-includes/class-wp-query.php
+    
+    # Ignore some WordPress specific patterns
+    ignoreErrors:
+        # WordPress global functions
+        - '#Call to an undefined function wp_.*#'
+        - '#Call to an undefined function get_.*#'
+        - '#Call to an undefined function the_.*#'
+        - '#Call to an undefined function have_.*#'
+        - '#Call to an undefined function is_.*#'
+        - '#Call to an undefined function esc_.*#'
+        - '#Call to an undefined function sanitize_.*#'
+        
+        # WordPress globals
+        - '#Access to an undefined property \$wpdb#'
+        - '#Access to an undefined property \$wp_.*#'
+        
+        # WordPress hooks
+        - '#Call to an undefined function add_filter#'
+        - '#Call to an undefined function add_action#'
+        - '#Call to an undefined function do_action#'
+        - '#Call to an undefined function apply_filters#'
+        - '#Call to an undefined function remove_filter#'
+        - '#Call to an undefined function remove_action#'
+        
+        # WordPress template functions
+        - '#Call to an undefined function get_header#'
+        - '#Call to an undefined function get_footer#'
+        - '#Call to an undefined function get_sidebar#'
+        - '#Call to an undefined function get_template_part#'
+        
+        # WordPress query functions
+        - '#Call to an undefined function have_posts#'
+        - '#Call to an undefined function the_post#'
+        - '#Call to an undefined function wp_reset_query#'
+        - '#Call to an undefined function wp_reset_postdata#'
+        
+        # WordPress ACF functions
+        - '#Call to an undefined function get_field#'
+        - '#Call to an undefined function the_field#'
+        - '#Call to an undefined function have_rows#'
+        - '#Call to an undefined function the_row#'
+        
+        # Dynamic method calls (common in WordPress)
+        - '#Call to an undefined method .*::.*\(\)#'
+        
+        # Array access on mixed types (common in WordPress data structures)
+        - '#Cannot access property .* on mixed#'
+        - '#Cannot access offset .* on mixed#'
+    
+    # Type checking settings
+    checkMissingIterableValueType: false
+    checkGenericClassInNonGenericObjectType: false
+    checkFunctionNameCase: true
+    checkInternalClassCaseSensitivity: true
+    
+    # Memory and performance
+    memoryLimitFile: 512M
+    
+    # Extensions
+    includes:
+        - vendor/szepeviktor/phpstan-wordpress/extension.neon
+    
+    # Custom rules
+    services:
+        -
+            class: PHPStan\Rules\Classes\RequireImplementsRule
+            tags:
+                - phpstan.rules.rule
+            arguments:
+                - 'WP_Widget'
+                - 'Widget'
+
+# Custom type declarations for WordPress
+typeAliases:
+    WP_Post: 'array{id: int, post_title: string, post_content: string, post_status: string, post_name: string, post_type: string}'
+    WP_Term: 'array{term_id: int, name: string, slug: string, term_group: int}'
+    WP_User: 'array{ID: int, user_login: string, user_email: string, display_name: string}'
+    WP_Query: 'WP_Query'

@@ -1,20 +1,34 @@
-# WordPress Core
+# WordPress Core - Exclude all core files
 wp/
 app/public/wp/
+app/public/wp-*.php
+app/public/xmlrpc.php
+app/public/license.txt
+app/public/readme.html
+app/public/index.php
+app/public/wp-admin/
+app/public/wp-includes/
+app/public/wp-content/index.php
+app/public/wp-content/languages/
 
 # WordPress Config
 app/public/wp-config.php
 app/public/.htaccess
 
+# Configuration folders
+conf/
+
 # Composer
 vendor/
 app/public/vendor/
+app/public/composer.lock
 
 # Node.js
 node_modules/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+*.lock
 
 # Logs
 logs/
@@ -28,6 +42,7 @@ logs/
 # Cache
 .cache/
 *.cache
+app/public/.phpunit.cache/
 
 # IDE/Editor
 .vscode/
@@ -44,6 +59,8 @@ Thumbs.db
 app/public/wp-content/uploads/
 app/public/wp-content/cache/
 app/public/wp-content/upgrade/
+app/public/wp-content/plugins/
+app/public/wp-content/themes/index.php
 
 # WordPress specific
 app/public/wp-content/mu-plugins/
@@ -55,6 +72,10 @@ app/public/wp-content/themes/*/node_modules/
 app/public/wp-content/themes/*/dist/
 app/public/wp-content/themes/*/build/
 
+# Development files
+app/public/local-xdebuginfo.php
+app/public/phpunit.xml.dist
+
 # Temporary files
 tmp/
 temp/
@@ -62,3 +83,8 @@ temp/
 # Backup files
 *.bak
 *.backup
+
+# Database
+app/sql/
+*.sql
+*.db

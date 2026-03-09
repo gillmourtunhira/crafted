@@ -1,15 +1,21 @@
+<?php
+
+declare(strict_types = 1);
+
+?>
+
 <!-- Footer -->
 <footer class="footer">
 	<div class="container">
 		<div class="footer-content">
 			<div class="footer-main">
-				<h3 class="footer-title"><?php
-
-				declare(strict_types = 1);
-
+				<h3 class="footer-title">
+				<?php
 				esc_html(
 					get_bloginfo( 'name' ),
-				); ?></h3>
+				);
+				?>
+				</h3>
 				<p class="footer-description">
 					<?php echo esc_html( get_bloginfo( 'description' ) ); ?>
 				</p>

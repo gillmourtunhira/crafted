@@ -18,18 +18,21 @@ if ( ! class_exists( 'Crafted_Nav_Walker' ) ) {
 		 * Starts the element output.
 		 *
 		 * @param string   $output Used to append additional content (passed by reference).
-		 * @param WP_Post  $item   Menu item data object.
+		 * @param WP_Post  $data_object   Menu item data object.
 		 * @param int      $depth  Depth of menu item.
 		 * @param stdClass $args   An object of wp_nav_menu() arguments.
-		 * @param int      $id     Current item ID.
+		 * @param int      $current_object_id     Current item ID.
 		 */
 		public function start_el(
 			string &$output,
-			WP_Post $item,
+			WP_Post $data_object,
 			int $depth = 0,
 			stdClass $args = null,
-			int $id = 0,
+			int $current_object_id = 0
 		): void {
+			$item = $data_object;
+			$id   = $current_object_id;
+
 			if (
 				isset( $args->item_spacing ) &&
 				$args->item_spacing === 'discard'
@@ -187,7 +190,9 @@ if ( ! class_exists( 'Crafted_Nav_Walker' ) ) {
 		/**
 		 * Ends the element output, if needed.
 		 */
-		public function end_el( &$output, $item, $depth = 0, $args = null ): void {
+		public function end_el( &$output, $data_object, $depth = 0, $args = null ): void {
+			$item = $data_object;
+
 			if (
 				isset( $args->item_spacing ) &&
 				$args->item_spacing === 'discard'
@@ -248,11 +253,14 @@ if ( ! class_exists( 'Crafted_Mobile_Nav_Walker' ) ) {
 
 		public function start_el(
 			&$output,
-			$item,
+			$data_object,
 			$depth = 0,
 			$args = null,
-			$id = 0,
+			$current_object_id = 0
 		): void {
+			$item = $data_object;
+			$id   = $current_object_id;
+
 			$classes = empty( $item->classes ) ? array() : (array) $item->classes;
 
 			$attributes  = ! empty( $item->attr_title )
@@ -294,7 +302,7 @@ if ( ! class_exists( 'Crafted_Mobile_Nav_Walker' ) ) {
 		/**
 		 * Helper function to get icons for mobile menu items
 		 */
-		private function get_menu_item_icon( $title ) {
+		private function get_menu_item_icon( $title ): string {
 			$icons = array(
 				'About'     => 'fas fa-user',
 				'Services'  => 'fas fa-cogs',

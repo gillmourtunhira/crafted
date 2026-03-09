@@ -1,4 +1,3 @@
-<!-- Contact Section -->
 <?php
 
 declare(strict_types = 1);
@@ -14,6 +13,7 @@ $social_links             = get_sub_field( 'social_links' );
 $contact_form             = get_sub_field( 'contact_form' );
 $form_top_title           = get_sub_field( 'top_title' );
 ?>
+<!-- Contact Section -->
 <section id="<?php echo $anchor; ?>" class="contact py-5">
 	<div class="container">
 		<div class="section-header">

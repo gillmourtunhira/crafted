@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html <?php
+<html lang="en" <?php
 
 declare(strict_types = 1);
 
